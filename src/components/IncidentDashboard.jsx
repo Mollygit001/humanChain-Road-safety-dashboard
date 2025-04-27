@@ -54,46 +54,54 @@ export default function IncidentDashboard() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Header */}
-      <motion.div className="mb-8 text-center" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <h1 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight">AI Safety Incident Dashboard</h1>
-        <p className="text-xl text-muted-foreground">Monitor and report AI safety incidents</p>
-      </motion.div>
-
-      {/* Controls */}
-      <IncidentControls
-        severityFilter={severityFilter}
-        setSeverityFilter={setSeverityFilter}
-        sortOrder={sortOrder}
-        setSortOrder={setSortOrder}
-        toggleForm={() => setShowReportForm(prev => !prev)}
-        showForm={showReportForm}
-      />
-
-      {/* Form */}
-      <AnimatePresence>
-        {showReportForm && (
-          <IncidentForm
-            newIncident={newIncident}
-            handleInputChange={handleInputChange}
-            handleSubmit={handleSubmit}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* List */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}>
-        <IncidentList
-          incidents={incidents}
-          expandedId={expandedIncidentId}
-          toggleDetails={handleToggleExpand}
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background Grid */}
+      <div className="bg-grid absolute inset-0 z-0" />
+  
+      {/* Main Content */}
+      <div className="container relative z-10 mx-auto px-4 py-8">
+        {/* Header */}
+        <motion.div className="mb-8 text-center" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight">AI Safety Incident Dashboard</h1>
+          <p className="text-xl text-muted-foreground">Monitor and report AI safety incidents</p>
+        </motion.div>
+  
+        {/* Controls */}
+        <IncidentControls
+          severityFilter={severityFilter}
+          setSeverityFilter={setSeverityFilter}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+          toggleForm={() => setShowReportForm(prev => !prev)}
+          showForm={showReportForm}
         />
-      </motion.div>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }} className="mt-8 text-center text-sm text-gray-500">
-        <p>Created by Arshad Zama</p>
-      </motion.div>
-
+  
+        {/* Form */}
+        <AnimatePresence>
+          {showReportForm && (
+            <IncidentForm
+              newIncident={newIncident}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+            />
+          )}
+        </AnimatePresence>
+  
+        {/* List */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}>
+          <IncidentList
+            incidents={incidents}
+            expandedId={expandedIncidentId}
+            toggleDetails={handleToggleExpand}
+          />
+        </motion.div>
+        
+        {/* Footer */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }} className="mt-8 text-center text-sm text-gray-500">
+          <p>Created by Arshad Zama</p>
+        </motion.div>
+      </div>
     </div>
   );
+  
 }
