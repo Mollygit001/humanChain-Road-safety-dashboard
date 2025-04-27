@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import IncidentControls from './IncidentControls';
 import IncidentList from './IncidentList';
 import IncidentForm from './ReportIncidentForm';
-import { useIncidents } from '@/hooks/useIncidents'; 
+import { useIncidents } from '@/hooks/useIncidents';
 
 export default function IncidentDashboard() {
   const {
@@ -90,6 +90,10 @@ export default function IncidentDashboard() {
           toggleDetails={handleToggleExpand}
         />
       </motion.div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }} className="mt-8 text-center text-sm text-gray-500">
+        <p>Created by Arshad Zama</p>
+      </motion.div>
+
     </div>
   );
 }
