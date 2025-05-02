@@ -9,7 +9,7 @@ Use [npm](https://www.npmjs.com/) to install and run HUMANCHAIN locally.
 ```bash
 # Clone the repository
 git clone https://github.com/Mollygit001/humanChain-Road-safety-dashboard.git
-cd humanchain
+cd humanChain-Road-safety-dashboard
 
 # Install dependencies
 npm install
