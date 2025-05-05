@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { motion, AnimatePresence } from 'framer-motion';
 import { format } from 'date-fns';
+import { Trash2 } from 'lucide-react';
 
-export default function IncidentCard({ incident, expandedId, toggleDetails }) {
+export default function IncidentCard({ incident, expandedId, toggleDetails, removeIncident }) {
   const isExpanded = expandedId === incident.id;
+
 
   return (
     <motion.div 
@@ -36,6 +38,16 @@ export default function IncidentCard({ incident, expandedId, toggleDetails }) {
               whileTap={{ scale: 0.95 }}
             >
               {isExpanded ? 'Hide Details' : 'View Details'}
+            </motion.button>
+
+            <motion.button
+              className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700"
+              onClick={() => removeIncident(incident.id)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Remove incident"
+            >
+              <Trash2 className="w-5 h-5" />
             </motion.button>
           </div>
         </div>

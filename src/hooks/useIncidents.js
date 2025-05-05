@@ -28,6 +28,10 @@ export const useIncidents = () => {
     setIncidents(prev => [newIncident, ...prev]);
   };
 
+  const handleRemoveIncident = (id) => {
+    setIncidents((prev) => prev.filter((i) => i.id !== id));
+    if (expandedIncidentId === id) setExpandedIncidentId(null);
+  };
   return {
     incidents: sortedIncidents,
     expandedIncidentId,
@@ -39,5 +43,6 @@ export const useIncidents = () => {
     setShowReportForm,
     handleToggleExpand,
     handleAddIncident,
+    handleRemoveIncident
   };
 };

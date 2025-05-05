@@ -2,7 +2,8 @@
 import IncidentCard from './IncidentCard';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function IncidentList({ incidents, expandedId, toggleDetails }) {
+export default function IncidentList({ incidents, expandedId, toggleDetails , removeIncident }) {
+
   if (incidents.length === 0) {
     return (
       <div className="text-center py-12">
@@ -42,6 +43,7 @@ export default function IncidentList({ incidents, expandedId, toggleDetails }) {
               incident={incident}
               expandedId={expandedId}
               toggleDetails={toggleDetails}
+              removeIncident={removeIncident} // Pass the removeIncident function to IncidentCard
             />
           </motion.div>
         ))}

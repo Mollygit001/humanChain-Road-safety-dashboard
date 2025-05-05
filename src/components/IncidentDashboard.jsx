@@ -18,6 +18,7 @@ export default function IncidentDashboard() {
     setShowReportForm,
     handleToggleExpand,
     handleAddIncident,
+    handleRemoveIncident
   } = useIncidents();
 
   const [newIncident, setNewIncident] = useState({
@@ -93,6 +94,7 @@ export default function IncidentDashboard() {
             incidents={incidents}
             expandedId={expandedIncidentId}
             toggleDetails={handleToggleExpand}
+            removeIncident={handleRemoveIncident}
           />
         </motion.div>
         
